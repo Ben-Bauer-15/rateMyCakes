@@ -3,6 +3,11 @@ var controller = require('../controllers/cakes')
 
 
 module.exports = function(app){
+
+    app.get('/', function(req, res){
+        controller.index(req, res)
+    })
+    
     app.get('/allCakes', function(req, res){
         controller.getAllCakes(req, res)
     })

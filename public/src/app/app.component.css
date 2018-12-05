@@ -1,0 +1,10 @@
+#allCakes {
+    max-height: 400px;
+    text-align: center;
+    overflow-y: scroll;
+}
+
+img {
+    width: 300px;
+    height: auto;
+}

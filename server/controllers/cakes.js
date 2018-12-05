@@ -2,6 +2,11 @@ var Cake = require('../models/cake').cake
 var Rating = require('../models/cake').rating
 
 module.exports = {
+
+    index : function(req, res){
+        res.sendFile(__dirname + 'index.html')
+    },
+
     getAllCakes : function(req, res){
         Cake.find({}, function(err, cakes){
             if (err){
@@ -14,7 +19,6 @@ module.exports = {
     },
 
     makeNewCake : function(req, res){
-        console.log(req.body)
         var newCake = new Cake({baker : req.body.baker, url : req.body.url, ratings : [], createdAt : new Date(), updatedAt : new Date()})
         newCake.save(function(err){
             if (err){
@@ -27,7 +31,6 @@ module.exports = {
     },
     
     makeNewRating : function(req, res){
-        console.log(req.body)
         var newRating = new Rating({stars : req.body.stars, comment : req.body.comment})
         newRating.save(function(err){
             if (err){
